@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+
+    <title>Kaibro's clock</title>
+
+    <style>
+      body {
+        border: 1px solid black;
+        background-color: black;
+      }
+      .container {
+        padding: 20px;
+        border-radius: 5px;
+        background-color: white;
+      }
+    </style>
+
+    <!-- Inline scripts are forbidden in Firefox OS apps (CSP restrictions),
+         so we use a script file. -->
+    <script src="app.js" defer></script>
+    <script src="jquery-2.1.4.min.js" defer></script>
+    
+  </head>
+
+  <body>
+    <!-- This code is in the public domain. Enjoy! -->
+    <div class="container">
+      <h2>超級發票機 v1.1.0</h2>
+      <p>作者：KaiBro</p>
+      <form id="sendRequest">
+         <span>請選擇兌獎月份：</span>
+         <select name="month">
+           <option value="5and6">5-6月</option>
+           <option value="7and8">7-8月</option>
+           <option value="9and10">9-10月</option>
+         </select>
+         <br>
+         <span>請輸入發票後三碼：</span>
+         <input type="text" name="num" style="width:30%"> <br>
+         <input type="button" id="sendBtn" value="送出">
+      </form>
+      <p id="output"></p>
+      <br>
+      <br>
+      <span>如果覺得此app好用，你可以</span>
+      <a href="#">贊助我們</a>
+    </div>
+  </body>
+</html>

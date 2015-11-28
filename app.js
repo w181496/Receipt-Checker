@@ -4,6 +4,54 @@ window.addEventListener("load", function() {
 });
 
 function start() {
+   
+   //$('#test').hide();
+   
+   $('#about').click(function(event) {
+      $('#main').hide();
+      $('#div_ref').hide();
+      $('#div_setting').hide();
+      $('#div_contact').hide();
+      $('#div_about').show();
+      closeMenu();
+   });
+   
+   $('#check').click(function(event) {
+      $('#div_about').hide();
+      $('#div_ref').hide();
+      $('#div_setting').hide();
+      $('#div_contact').hide();
+      $('#main').show();
+      closeMenu();
+   });
+   
+   $('#reference').click(function(event) {
+      $('#div_about').hide();
+      $('#div_setting').hide();
+      $('#div_contact').hide();
+      $('#main').hide();
+      $('#div_ref').show();
+      closeMenu();
+   });
+   
+   $('#setting').click(function(event) {
+      $('#div_about').hide();
+      $('#div_contact').hide();
+      $('#main').hide();
+      $('#div_ref').hide();
+      $('#div_setting').show();
+      closeMenu();
+   });
+   
+   $('#contact').click(function(event) {
+      $('#div_about').hide();
+      $('#main').hide();
+      $('#div_ref').hide();
+      $('#div_setting').hide();
+      $('#div_contact').show();
+      closeMenu();
+   });
+   
    $.ajaxSetup( {
       xhr: function() {return new window.XMLHttpRequest({mozSystem: true});}
    });

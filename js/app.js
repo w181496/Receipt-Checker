@@ -4,9 +4,9 @@ window.addEventListener("load", function() {
 });
 
 function start() {
-   
+
    //$('#test').hide();
-   
+
    $('#about').click(function(event) {
       $('#title_text').text("關於");
       $('#main').hide();
@@ -16,7 +16,7 @@ function start() {
       $('#div_about').show();
       closeMenu();
    });
-   
+
    $('#check').click(function(event) {
       $('#title_text').text("對發票");
       $('#div_about').hide();
@@ -26,7 +26,7 @@ function start() {
       $('#main').show();
       closeMenu();
    });
-   
+
    $('#reference').click(function(event) {
       $('#title_text').text("參考資料");
       $('#div_about').hide();
@@ -36,7 +36,7 @@ function start() {
       $('#div_ref').show();
       closeMenu();
    });
-   
+
    $('#setting').click(function(event) {
       $('#title_text').text("設定");
       $('#div_about').hide();
@@ -46,7 +46,7 @@ function start() {
       $('#div_setting').show();
       closeMenu();
    });
-   
+
    $('#contact').click(function(event) {
       $('#title_text').text("聯絡我們");
       $('#div_about').hide();
@@ -56,15 +56,15 @@ function start() {
       $('#div_contact').show();
       closeMenu();
    });
-   
+
    $.ajaxSetup( {
       xhr: function() {return new window.XMLHttpRequest({mozSystem: true});}
    });
-   
+
    var sendBtn = document.getElementById('sendBtn');
-   
+
    sendBtn.addEventListener('click', function(event) {
-      
+
       $.ajax({
          url: "http://w181496.twbbs.org/api/index.php",
          data: $('#sendRequest').serialize(),
@@ -91,13 +91,12 @@ function start() {
             else output.innerHTML = "沒中G_G";
          },
 
-         error:function(xhr, ajaxOptions, thrownError){ 
-            alert(xhr.status); 
-            alert(thrownError); 
+         error:function(xhr, ajaxOptions, thrownError){
+            alert(xhr.status);
+            alert(thrownError);
          }
       });
-      
+
    });
-   
 }
 

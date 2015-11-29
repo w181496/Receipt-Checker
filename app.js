@@ -8,6 +8,7 @@ function start() {
    //$('#test').hide();
    
    $('#about').click(function(event) {
+      $('#title_text').text("關於");
       $('#main').hide();
       $('#div_ref').hide();
       $('#div_setting').hide();
@@ -17,6 +18,7 @@ function start() {
    });
    
    $('#check').click(function(event) {
+      $('#title_text').text("對發票");
       $('#div_about').hide();
       $('#div_ref').hide();
       $('#div_setting').hide();
@@ -26,6 +28,7 @@ function start() {
    });
    
    $('#reference').click(function(event) {
+      $('#title_text').text("參考資料");
       $('#div_about').hide();
       $('#div_setting').hide();
       $('#div_contact').hide();
@@ -35,6 +38,7 @@ function start() {
    });
    
    $('#setting').click(function(event) {
+      $('#title_text').text("設定");
       $('#div_about').hide();
       $('#div_contact').hide();
       $('#main').hide();
@@ -44,6 +48,7 @@ function start() {
    });
    
    $('#contact').click(function(event) {
+      $('#title_text').text("聯絡我們");
       $('#div_about').hide();
       $('#main').hide();
       $('#div_ref').hide();

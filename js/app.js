@@ -68,9 +68,8 @@ function start() {
       
       success: function(msg) {
           var receipt_arr = jQuery.parseJSON(msg);
-          console.log(receipt_arr);
+         // Todo: error detect
           $.each(receipt_arr, function(index, obj) {
-              console.log(obj.url);
               $('#month')
                  .append($("<option></option>")
                  .attr("value", obj.url)

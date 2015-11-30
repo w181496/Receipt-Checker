@@ -5,8 +5,6 @@ window.addEventListener("load", function() {
 
 function start() {
 
-   //$('#test').hide();
-
    $('#about').click(function(event) {
       $('#title_text').text("關於");
       $('#main').hide();
@@ -61,8 +59,33 @@ function start() {
       xhr: function() {return new window.XMLHttpRequest({mozSystem: true});}
    });
 
-   var sendBtn = document.getElementById('sendBtn');
+   // get/set the select value and other info
+   $.ajax({
+      url: "http://w181496.twbbs.org/api/crawler.php",
+      data: $('#sendRequest').serialize(),
+      type:"POST",
+      dataType:'text',
+      
+      success: function(msg) {
+          var receipt_arr = jQuery.parseJSON(msg);
+          console.log(receipt_arr);
+          $.each(receipt_arr, function(index, obj) {
+              console.log(obj.url);
+              $('#month')
+                 .append($("<option></option>")
+                 .attr("value", obj.url)
+                 .text(obj.year + "年" + obj.month_from + "-" + obj.month_to + "月")); 
+          });
+      },
 
+      error: function(xhr, ajaxOptions, thrownError){
+          alert(xhr.status);
+          alert(thrownError);
+      }
+
+   });
+
+   var sendBtn = document.getElementById('sendBtn');
    sendBtn.addEventListener('click', function(event) {
 
       $.ajax({
@@ -71,7 +94,7 @@ function start() {
          type:"POST",
          dataType:'text',
 
-         success: function(msg){
+         success: function(msg) {
             var output = document.getElementById('output');
             output.innerHTML = "";
             //alert(msg);

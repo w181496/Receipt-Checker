@@ -65,7 +65,7 @@ function start() {
       data: $('#sendRequest').serialize(),
       type:"POST",
       dataType:'text',
-      
+
       success: function(msg) {
           var receipt_arr = jQuery.parseJSON(msg);
          // Todo: error detect
@@ -73,7 +73,7 @@ function start() {
               $('#month')
                  .append($("<option></option>")
                  .attr("value", obj.url)
-                 .text(obj.year + "年" + obj.month_from + "-" + obj.month_to + "月")); 
+                 .text(obj.year + "年" + obj.month_from + "-" + obj.month_to + "月"));
           });
       },
 
@@ -88,7 +88,7 @@ function start() {
    sendBtn.addEventListener('click', function(event) {
 
       $.ajax({
-         url: "http://w181496.twbbs.org/api/index.php",
+         url: "http://w181496.twbbs.org/api/check.php",
          data: $('#sendRequest').serialize(),
          type:"POST",
          dataType:'text',
@@ -97,6 +97,7 @@ function start() {
             var output = document.getElementById('output');
             output.innerHTML = "";
             //alert(msg);
+            console.log(msg);
             if(msg == "12") alert("可能中特別獎，請輸入完整號碼!");
             else if(msg == "11") alert("可能中特獎，請輸入完整號碼!");
             else if(msg == "10") alert("可能中頭獎，請輸入完整號碼!");
@@ -121,4 +122,3 @@ function start() {
 
    });
 }
-

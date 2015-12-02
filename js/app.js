@@ -103,8 +103,6 @@ function start() {
          dataType:'text',
 
          success: function(msg) {
-            var output = document.getElementById('output');
-            output.innerHTML = "";
             //alert(msg);
             console.log(msg);
             if(msg == "12") result("可能中特別獎，請輸入完整號碼!", 1);

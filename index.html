@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
 
-    <title>Kaibro's clock</title>
+    <title>Kaibro's Receipt Checker</title>
 
-    <link href="style.css" rel='stylesheet' type='text/css'>
+    <link href="css/style.css" rel='stylesheet' type='text/css'>
+    <link href="css/semantic.css" rel='stylesheet' type='text/css'>
     <!-- Inline scripts are forbidden in Firefox OS apps (CSP restrictions),
          so we use a script file. -->
     <script src="js/app.js" defer></script>
@@ -36,23 +37,27 @@
         </div>
 
         <div class="container" id="div_about">
-          <h2>關於超級發票機</h2>
+          <h1>關於超級發票機</h1>
           <p>就只是一個簡單的對發票app</p>
+          <p>版本號：1.1.1</p>
         </div>
 
         <div class="container" id="main">
-          <h2>超級發票機 v1.1.0</h2>
-          <p>作者：KaiBro</p>
+          <h1>超級發票機</h1>
+          <p style="color:gray">作者：KaiBro</p>
+          <br>
           <form id="sendRequest">
-             <span>請選擇兌獎月份：</span>
-             <select name="month" id="month">
+             <span class="content_text">請選擇兌獎月份：</span>
+             <select name="month" id="month" class="ui dropdown fluid">
              </select>
              <br>
-             <span>請輸入發票號碼：</span>
-             <input type="text" name="num" style="width:30%" placeholder="至少輸入三碼"> <br>
-             <input type="button" id="sendBtn" value="送出">
+             <span class="content_text">請輸入發票號碼：</span>
+             <div class="ui input fluid" id="num">
+               <input type="number" name="num" style="width:100%;" placeholder="至少輸入三碼">
+             </div>
+            <br>
+             <input type="button" id="sendBtn" class="ui blue button fluid" value="查詢">
           </form>
-          <p id="output"></p>
           <br>
           <br>
           <span>若覺得此app好用，你可以</span>
@@ -60,20 +65,23 @@
         </div>
 
         <div class="container" id="div_ref">
-          <h2>Reference</h2>
-          <a href="http://www.bypeople.com/mobile-app-css-sliding-menu/">http://www.bypeople.com/mobile-app-css-sliding-menu/</a>
-          <a href="http://soledadpenades.com/2014/03/05/failproof-ajax-requests-in-firefox-os/">http://soledadpenades.com/2014/03/05/failproof-ajax-requests-in-firefox-os/</a>
+          <h1>Reference</h1>
+          <a href="http://www.bypeople.com/mobile-app-css-sliding-menu/">mobile-app-css-sliding-menu</a>
+          <br><br>
+          <a href="http://soledadpenades.com/2014/03/05/failproof-ajax-requests-in-firefox-os/">failproof-ajax-requests-in-firefox-os</a>
+          <br><br>
+          <a href="https://www.google.com">google</a>
         </div>
 
         <div class="container" id="div_setting">
-          <h2>設定</h2>
+          <h1>Setting</h1>
           <p>Todo</p>
         </div>
 
         <div class="container" id="div_contact">
-          <h2>聯絡我們</h2>
+          <h1>聯絡我們</h1>
           <p>作者：KaiBro</p>
-          <p>github: <a href="https://github.com/w181496">w181496</a></p>
+          <p>github: <a target="_blank" href="https://github.com/w181496">w181496</a></p>
         </div>
 
         <div class="burger">

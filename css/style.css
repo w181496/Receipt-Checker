@@ -3,9 +3,18 @@
 
 .container {
   /*margin-top:100px;*/
+  margin-top:20px;
+  margin-left:5px;
+  margin-right:5px;
+  height: 430px;
   padding: 20px;
   border-radius: 5px;
-  background-color: white;
+  background-color: #F3F3F3;
+}
+
+.content_text {
+   font-size:20px;
+   color:#1C0D86;
 }
 
 div.screen {

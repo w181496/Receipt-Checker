@@ -9,4 +9,5 @@ It is also an app on firefox os.
 ## Usage
 
 You can select month and type the receipt numbers, then check it!
+
 But number is at least 3 digits.

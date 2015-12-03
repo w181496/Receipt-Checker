@@ -4,11 +4,16 @@
 
 
   var ReceiptChecker = function() {
+     this.style_type = 1;
   };
 
   ReceiptChecker.prototype = {
 
      start() {
+        
+       this.setStyle();
+       this.setChangeStyle();
+        
        $.ajaxSetup( {
           xhr: function() {return new window.XMLHttpRequest({mozSystem: true});}
        });
@@ -135,6 +140,34 @@
           $("#num").attr("class","ui input fluid");
        }
        exports.alert(str);
+    },
+     
+    setChangeStyle() {
+       $('#changeShit').click(function(event) {
+           localStorage.setItem("type", 3);
+           ReceiptChecker.prototype.setStyle();
+       });
+       
+       $('#changePink').click(function(event) {
+           localStorage.setItem("type", 2);
+           ReceiptChecker.prototype.setStyle();
+       });
+       
+       $('#changeDefault').click(function(event) {
+           localStorage.setItem("type", 1);
+           ReceiptChecker.prototype.setStyle();
+       });
+    },
+     
+    setStyle() {
+       var type = localStorage.getItem("type");
+       if(type == 1) {
+          $('div.screen').css('background-color', '#31558a');
+       } else if(type == 2){
+          $('div.screen').css('background-color', 'pink');
+       } else if(type == 3) {
+          $('div.screen').css('background-color', 'rgb(158, 114, 10)');
+       }
     }
 
   };

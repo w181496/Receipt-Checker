@@ -4,13 +4,12 @@
 
 
   var ReceiptChecker = function() {
-
   };
 
   ReceiptChecker.prototype = {
 
      start() {
-       
+
        $.ajaxSetup( {
           xhr: function() {return new window.XMLHttpRequest({mozSystem: true});}
        });
@@ -24,7 +23,6 @@
 
           success: function(msg) {
               var receipt_arr = jQuery.parseJSON(msg);
-             // Todo: error detect
               $.each(receipt_arr, function(index, obj) {
                   $('#month')
                      .append($("<option></option>")
@@ -50,8 +48,6 @@
              dataType:'text',
 
              success: function(msg) {
-                //alert(msg);
-                console.log(msg);
                 if(msg == "12") result("可能中特別獎，請輸入完整號碼!", 1);
                 else if(msg == "11") result("可能中特獎，請輸入完整號碼!", 1);
                 else if(msg == "10") result("可能中頭獎，請輸入完整號碼!", 1);
@@ -77,6 +73,7 @@
        });
     },
 
+    // 設定Menu上的事件
     setMenuEvent() {
         $('#about').click(function(event) {
           $('#title_text').text("關於");
@@ -129,6 +126,7 @@
        });
     },
 
+    // 輸入錯誤和正確時有不同的input class
     result(str, type) {
        if(type == 0) {
           $("#num").attr("class","ui input fluid error");

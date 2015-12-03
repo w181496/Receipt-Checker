@@ -1,3 +1,4 @@
+// use karma, sinon, chai
 var rc = new ReceiptChecker();
 describe('Test Receipt Checker', function(){
     $("body").append("<input id=\"num\">");
@@ -7,7 +8,7 @@ describe('Test Receipt Checker', function(){
     $("body").append("<input id=\"setting\">");
     $("body").append("<input id=\"contact\">");
     $("body").append("<p id=\"title_text\"></p>");
- 
+
     describe('Test input class', function(){
         it("Test Successful Input", function(){
             rc.result('Just test', 1);

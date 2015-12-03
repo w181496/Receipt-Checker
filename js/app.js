@@ -9,7 +9,6 @@
   ReceiptChecker.prototype = {
 
      start() {
-        
        $.ajaxSetup( {
           xhr: function() {return new window.XMLHttpRequest({mozSystem: true});}
        });
@@ -48,20 +47,22 @@
              dataType:'text',
 
              success: function(msg) {
-                if(msg == "12") result("可能中特別獎，請輸入完整號碼!", 1);
-                else if(msg == "11") result("可能中特獎，請輸入完整號碼!", 1);
-                else if(msg == "10") result("可能中頭獎，請輸入完整號碼!", 1);
-                else if(msg == "9") result("恭喜中特別獎!", 1);
-                else if(msg == "8") result("恭喜中特獎!", 1);
-                else if(msg == "7") result("恭喜中增開六獎!", 1);
-                else if(msg == "6") result("恭喜中六獎!", 1);
-                else if(msg == "5") result("恭喜中五獎!", 1);
-                else if(msg == "4") result("恭喜中四獎!", 1);
-                else if(msg == "3") result("恭喜中三獎!", 1);
-                else if(msg == "2") result("恭喜中二獎!", 1);
-                else if(msg == "1") result("恭喜中頭獎!", 1);
-                else if(msg == "-1") result("輸入格式錯誤!", 0);
-                else result("沒中G_G", 1);
+                  (function(){
+                      if(msg == "12") this.result("可能中特別獎，請輸入完整號碼!", 1);
+                      else if(msg == "11") this.result("可能中特獎，請輸入完整號碼!", 1);
+                      else if(msg == "10") this.result("可能中頭獎，請輸入完整號碼!", 1);
+                      else if(msg == "9") this.result("恭喜中特別獎!", 1);
+                      else if(msg == "8") this.result("恭喜中特獎!", 1);
+                      else if(msg == "7") this.result("恭喜中增開六獎!", 1);
+                      else if(msg == "6") this.result("恭喜中六獎!", 1);
+                      else if(msg == "5") this.result("恭喜中五獎!", 1);
+                      else if(msg == "4") this.result("恭喜中四獎!", 1);
+                      else if(msg == "3") this.result("恭喜中三獎!", 1);
+                      else if(msg == "2") this.result("恭喜中二獎!", 1);
+                      else if(msg == "1") this.result("恭喜中頭獎!", 1);
+                      else if(msg == "-1") this.result("輸入格式錯誤!", 0);
+                      else this.result("沒中G_G", 1);
+                  }).bind(ReceiptChecker.prototype)();
              },
 
              error:function(xhr, ajaxOptions, thrownError){
@@ -133,7 +134,7 @@
        } else {
           $("#num").attr("class","ui input fluid");
        }
-       alert(str);
+       exports.alert(str);
     }
 
   };

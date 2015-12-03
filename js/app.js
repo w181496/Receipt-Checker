@@ -9,7 +9,7 @@
   ReceiptChecker.prototype = {
 
      start() {
-
+        
        $.ajaxSetup( {
           xhr: function() {return new window.XMLHttpRequest({mozSystem: true});}
        });

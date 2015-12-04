@@ -177,12 +177,15 @@
        if(type == 1) {
           $('div.screen').css('background-color', '#31558a');
           $('span.content_text').css('color', '#1C0D86');
+          $('#sendBtn').attr('class', 'ui blue button fluid');
        } else if(type == 2){
           $('div.screen').css('background-color', 'pink');
           $('span.content_text').css('color', 'rgb(233, 96, 202)');
+          $('#sendBtn').attr('class', 'ui pink button fluid');
        } else if(type == 3) {
           $('div.screen').css('background-color', 'rgb(158, 114, 10)');
           $('span.content_text').css('color', 'rgb(186, 160, 16)');
+          $('#sendBtn').attr('class', 'ui yellow button fluid');
        }
     },
      

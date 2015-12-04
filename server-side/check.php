@@ -1,12 +1,14 @@
 <?php
 	$flag = -100;
+	$len = 0;
 
 	if(isset($_POST['month'])) $url = "http://service.etax.nat.gov.tw/etwmain/front/".$_POST['month'];
 	else $url = "http://service.etax.nat.gov.tw/etwmain/front/"."ETW183W2?id=1513d40ae82000000ff9bc46b8ca0742";
 	
-	if(isset($_POST['num'])) $num = $_POST['num'];
-
-	$len = strlen($num);
+	if(isset($_POST['num'])) { 
+		$num = $_POST['num'];
+		$len = strlen($num);
+	}
 
 	if($len > 8 || $len < 3) {
 		echo "-1";

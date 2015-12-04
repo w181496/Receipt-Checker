@@ -10,16 +10,12 @@
 
      start() {
         
-       this.setStyle();
-       this.setChangeStyle();
-       this.setImg();
-       this.setChangeImg();
-        
+       // 設定ajax
        $.ajaxSetup( {
           xhr: function() {return new window.XMLHttpRequest({mozSystem: true});}
        });
 
-       // get/set the select value and other info
+       // 取的並設定Select中的選項為後端爬下來的年月
        $.ajax({
           url: "http://w181496.twbbs.org/api/crawler.php",
           data: $('#sendRequest').serialize(),
@@ -40,18 +36,18 @@
               alert(xhr.status);
               alert(thrownError);
           }
-
        });
 
+       // 設定按鈕事件去後端查詢驗證
        var sendBtn = document.getElementById('sendBtn');
        sendBtn.addEventListener('click', function(event) {
-
           $.ajax({
              url: "http://w181496.twbbs.org/api/check.php",
              data: $('#sendRequest').serialize(),
              type:"POST",
              dataType:'text',
 
+             // 根據回傳回來的flag，產生對應的結果
              success: function(msg) {
                   (function(){
                       if(msg == "12") this.result("可能中特別獎，請輸入完整號碼!", 1);
@@ -80,7 +76,7 @@
        });
     },
 
-    // 設定Menu上的事件
+    // 設定Menu上各個按鈕的事件
     setMenuEvent() {
         $('#about').click(function(event) {
           $('#title_text').text("關於");
@@ -143,6 +139,7 @@
        exports.alert(str);
     },
      
+    // 設定主題色三個按鈕的click事件，並用localStorage保存狀態
     setChangeStyle() {
        $('#changeShit').click(function(event) {
            localStorage.setItem("type", 3);
@@ -160,6 +157,7 @@
        });
     },
      
+    // 設定Menu背景圖片兩個按鈕的click事件，並用localStorage保存狀態
     setChangeImg() {
         $('#change101').click(function(event) {
             localStorage.setItem("img", 1);
@@ -172,6 +170,7 @@
         });
     },
      
+    // 根據localStorage更改主題CSS樣式
     setStyle() {
        var type = localStorage.getItem("type");
        if(type == 1) {
@@ -188,7 +187,8 @@
           $('#sendBtn').attr('class', 'ui yellow button fluid');
        }
     },
-     
+    
+    // 根據localStorage更改Menu背景圖片
     setImg() {
        var img = localStorage.getItem("img");
        if(img == 1) {

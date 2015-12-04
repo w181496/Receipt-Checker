@@ -15,7 +15,7 @@
           xhr: function() {return new window.XMLHttpRequest({mozSystem: true});}
        });
 
-       // 取的並設定Select中的選項為後端爬下來的年月
+       // 取得並設定Select中的選項為後端爬下來的年月
        $.ajax({
           url: "http://w181496.twbbs.org/api/crawler.php",
           data: $('#sendRequest').serialize(),

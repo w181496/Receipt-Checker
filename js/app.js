@@ -4,7 +4,6 @@
 
 
   var ReceiptChecker = function() {
-     this.style_type = 1;
   };
 
   ReceiptChecker.prototype = {
@@ -13,6 +12,8 @@
         
        this.setStyle();
        this.setChangeStyle();
+       this.setImg();
+       this.setChangeImg();
         
        $.ajaxSetup( {
           xhr: function() {return new window.XMLHttpRequest({mozSystem: true});}
@@ -159,14 +160,38 @@
        });
     },
      
+    setChangeImg() {
+        $('#change101').click(function(event) {
+            localStorage.setItem("img", 1);
+            ReceiptChecker.prototype.setImg();
+        });
+       
+        $('#changeWoods').click(function(event) {
+            localStorage.setItem("img", 2);
+            ReceiptChecker.prototype.setImg();
+        });
+    },
+     
     setStyle() {
        var type = localStorage.getItem("type");
        if(type == 1) {
           $('div.screen').css('background-color', '#31558a');
+          $('span.content_text').css('color', '#1C0D86');
        } else if(type == 2){
           $('div.screen').css('background-color', 'pink');
+          $('span.content_text').css('color', 'rgb(233, 96, 202)');
        } else if(type == 3) {
           $('div.screen').css('background-color', 'rgb(158, 114, 10)');
+          $('span.content_text').css('color', 'rgb(186, 160, 16)');
+       }
+    },
+     
+    setImg() {
+       var img = localStorage.getItem("img");
+       if(img == 1) {
+          $('#menu-bg').attr('src', 'img/background.jpg');
+       } else if(img == 2){
+          $('#menu-bg').attr('src', 'img/background2.jpg');
        }
     }
 
